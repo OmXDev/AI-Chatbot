@@ -82,22 +82,23 @@ OpenRouter (AI model)
 
 ```
 
-\[Webhook (Hasura Action: sendMessage)]
-|
-v
-\[Validate chat ownership via GraphQL]
-|
-v
-\[Send user message to OpenRouter API (DeepSeek R1\:free)]
-|
-v
-\[Receive AI response from OpenRouter]
-|
-v
-\[Save assistant message back to Hasura (messages table)]
-|
-v
-\[Return reply to Hasura Action -> Frontend updates via subscription]
+[Webhook (Hasura Action: sendMessage)]
+        |
+        v
+[Validate chat ownership via GraphQL]
+        |
+        v
+[Send user message to OpenRouter API (DeepSeek R1:free)]
+        |
+        v
+[Receive AI response from OpenRouter]
+        |
+        v
+[Save assistant message back to Hasura (messages table)]
+        |
+        v
+[Return reply to Hasura Action -> Frontend updates via subscription]
+
 
 ````
 
