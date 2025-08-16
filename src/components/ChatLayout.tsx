@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, LogOut } from 'lucide-react';
+import { Menu, X, LogOut, MessageSquare, Sparkles } from 'lucide-react';
 import ChatSidebar from './ChatSidebar';
 import ChatMessage from './ChatMessage';
 import ChatInput from './ChatInput';
@@ -49,7 +49,7 @@ export default function ChatLayout({ onLogout }: ChatLayoutProps) {
   useEffect(() => {
     if (activeChat) {
       loadMessages({ variables: { chat_id: activeChat } })
-        
+
         .catch((err) => {
           console.error("❌ Error loading messages:", err);
         });
@@ -230,7 +230,22 @@ export default function ChatLayout({ onLogout }: ChatLayoutProps) {
             ) : messages.length > 0 ? (
               messages.map((message) => <ChatMessage key={message.id} message={message} />)
             ) : (
-              <div className="text-gray-400 italic">Send Message to start chat...</div>
+              <div className="flex-1 flex items-center justify-center bg-background">
+                <div className= " mt-36 text-center max-w-md mx-auto p-8">
+                  <div className="flex justify-center mb-6">
+                    <div className="relative">
+                      <MessageSquare className="h-16 w-16 text-primary" />
+                      <Sparkles className="h-6 w-6 text-primary absolute -top-1 -right-1" />
+                    </div>
+                  </div>
+                  <h2 className="text-2xl font-bold text-foreground mb-4">Welcome to AI Chat</h2>
+                  <div className="space-y-2 text-sm text-muted-foreground">
+                    <p>• Ask questions and get intelligent responses</p>
+                    <p>• Get help with coding, writing, and analysis</p>
+                    <p>• Explore ideas and solve problems together</p>
+                  </div>
+                </div>
+              </div>
             )}
           </div>
         </main>
